@@ -11,13 +11,9 @@ public class Driver {
         numbers.addFirst(4);
         numbers.addFirst(5);
 
-        Object [] ob = numbers.toArray();
-        for(Object p : ob){
-            System.out.print(p + " ");
-        }
+        print(numbers);
 
         System.out.println();
-
         numbers.add(2,20);
         numbers.add(5,30);
 
@@ -25,10 +21,7 @@ public class Driver {
         numbers.addLast(67);
 
         System.out.println("after adding more elements: ");
-        Object [] obj = numbers.toArray();
-        for(Object p : obj){
-            System.out.print(p + " ");
-        }
+        print(numbers);
 
         int firstElement = numbers.getFirst();
         System.out.println("\nthe first element of the linkedlist is " + firstElement);
@@ -60,6 +53,10 @@ public class Driver {
         System.out.println("the element contains node 4 returns " + m);
 
         System.out.println("After everything, the final linkedlist is ");
+        print(numbers);
+    }
+
+    public static void print(SingleLinkedList<Integer> numbers){
         Object [] o = numbers.toArray();
         for(Object p : o){
             System.out.print(p + " ");
