@@ -23,21 +23,14 @@ public class SingleLinkedList <T> {
         Node currentNode = head;
         int i = 0;
         while(currentNode != null) {
-            myObj[i] = currentNode.data;
+            myObj[i++] = currentNode.data;
             currentNode = currentNode.next;
-            i++;
         }
         return myObj;
     }
 
     public void addLast(T data){
         Node newNode = new Node(data);
-
-        if(head == null){
-            head = newNode;
-            return;
-        }
-
         Node currentNode = head;
         while (currentNode.next != null){
             currentNode = currentNode.next;
@@ -46,14 +39,6 @@ public class SingleLinkedList <T> {
     }
 
     public void add(int index, T data){
-        if(index == 0){
-            addFirst(data);
-            return;
-        }
-        if(index == size()){
-            addLast(data);
-            return;
-        }
         Node newNode = new Node(data);
         Node currentNode = head;
         for(int i = 0; i<index-1; i++){
@@ -98,16 +83,10 @@ public class SingleLinkedList <T> {
     }
 
     public void remove(){
-        if(head == null){
-            return;
-        }
         head = head.next;
     }
 
     public void remove(int index){
-        if(head == null){
-            return;
-        }
         Node currentNode = head;
         for(int i = 0; i<index-1; i++){
             currentNode = currentNode.next;
@@ -139,8 +118,8 @@ public class SingleLinkedList <T> {
 
     public boolean contains(Object o){
         Node currentNode = head;
-        while(currentNode.next != null){
-            if(currentNode.next.data.equals(o)){
+        while(currentNode != null){
+            if(currentNode.data.equals(o)){
                 return true;
             }
             currentNode = currentNode.next;
