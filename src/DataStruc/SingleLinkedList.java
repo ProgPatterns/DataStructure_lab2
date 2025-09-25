@@ -6,9 +6,25 @@ public class SingleLinkedList <T> {
         T data;
         Node next;
 
-        public Node(T data){
+        private Node(T data){
             this.data = data;
             next = null;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
         }
     }
 
@@ -72,26 +88,32 @@ public class SingleLinkedList <T> {
     public int indexOf(Object o){
         Node currentNode = head;
         int index = 0;
-        while(currentNode.next != null){
+        while(currentNode != null){
             if(currentNode.data.equals(o)){
                 return index;
+            }else {
+                currentNode = currentNode.next;
+                index++;
             }
-            currentNode = currentNode.next;
-            index++;
         }
         return -1;
     }
 
-    public void remove(){
+    public T remove(){
+        T value = head.data;
         head = head.next;
+        return value;
     }
 
-    public void remove(int index){
+    public T remove(int index){
         Node currentNode = head;
+        T value = currentNode.data;
         for(int i = 0; i<index-1; i++){
             currentNode = currentNode.next;
+            value = currentNode.next.data;
         }
         currentNode.next = currentNode.next.next;
+        return value;
     }
 
     public boolean removes(Object o){
@@ -125,14 +147,5 @@ public class SingleLinkedList <T> {
             currentNode = currentNode.next;
         }
         return false;
-    }
-
-    public void display(){
-        Node currentNode = head;
-        while (currentNode != null){
-            System.out.print(currentNode.data + " -> ");
-            currentNode = currentNode.next;
-        }
-        System.out.println("null");
     }
 }
