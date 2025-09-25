@@ -110,8 +110,8 @@ public class SingleLinkedList <T> {
         Node currentNode = head;
         int counter = 0;
         while(currentNode != null){
-            counter++;
             currentNode = currentNode.next;
+            counter++;
         }
         return counter;
     }
