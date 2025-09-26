@@ -36,13 +36,13 @@ public class Driver {
         System.out.println("after removing the element at index 2, new list ");
         print(numbers);
 
-        System.out.println("removing the element 3 returns " + numbers.removes(3));
+        System.out.println("does element 3 exist and removable: " + numbers.removes(3));
         System.out.println("after removing the element, new list ");
         print(numbers);
 
         System.out.println("the size of the list is " + numbers.size());
 
-        System.out.println("the element contains node 5 returns " + numbers.contains(5));
+        System.out.println("does the list contain element 5: " + numbers.contains(5));
     }
 
     public static void print(SingleLinkedList<Integer> numbers){

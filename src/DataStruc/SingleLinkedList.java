@@ -106,12 +106,17 @@ public class SingleLinkedList <T> {
     }
 
     public T remove(int index){
+        if(index == 0){
+            T value = head.data;
+            head = head.next;
+            return value;
+        }
+
         Node currentNode = head;
-        T value = currentNode.data;
         for(int i = 0; i<index-1; i++){
             currentNode = currentNode.next;
-            value = currentNode.next.data;
         }
+        T value = currentNode.next.data;
         currentNode.next = currentNode.next.next;
         return value;
     }
